@@ -1,0 +1,11 @@
+# configura um producer a enviar mensagens para o topic topico2
+kafka-console-producer --broker-list localhost:29092 --topic topico2
+
+# faz a ordenação das mensagens na partição no momento em que chega no tópico. a configuração deve ser realizada no producer.
+# Com essa configuração o Kafka garante que as mensagens de mesma key fiquem na mesma partição garantindo a ordenação.
+
+kafka-console-producer --broker-list localhost:29092 --topic topico1 --property parse.key=true --property key.separator=:
+
+Ex: userA:order0 --> key(id do usuario), value(mensagem), seprador(:)
+
+ORD-100:{"eventID":"evt-001","eventType":"order.created","orderId":"ORD-100","totalAmount":199.90}

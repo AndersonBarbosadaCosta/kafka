@@ -1,0 +1,15 @@
+# lê as mensagens de um tócic 
+kafka-console-consumer --bootstrap-server localhost:29092 --topic topico1
+
+# Para ler desde o inicio 
+kafka-console-consumer --bootstrap-server localhost:29092 --topic topico1 --from-beginning
+
+# Para agrupar consumer por detrminada key 
+kafka-console-consumer --bootstrap-server localhost:29092 --topic topico1 --from-beginning --group order
+
+
+# Lê as mensagens de um tópico desde o inicio a partir da definição da partição
+kafka-console-consumer --bootstrap-server localhost:29092 --topic topico1 --from-beginning --partition 0
+
+# Lê as mensagens e imprime as propriedades da partição separadas por " | "
+kafka-console-consumer --bootstrap-server localhost:29092 --topic orders.created --group A --from-beginning --property print.key=true --property key.separator=" | " --property print.partition=true --property print.offset=true

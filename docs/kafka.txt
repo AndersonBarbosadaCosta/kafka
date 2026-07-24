@@ -1,0 +1,14 @@
+# cria um topic com partições
+kafka-topics --create --bootstrap-server localhost:29092 --replication-factor 1 --partitions 3 --topic topico1
+
+# visualiza os topicos
+kafka-topics --bootstrap-server localhost:29092 --list
+
+# visualiza os detalhes de um topic
+kafka-topics --describe --bootstrap-server localhost:29092 --topic topico1
+
+#visualiza os groups criados de consumers
+kafka-consumer-groups --bootstrap-server localhost:29092 --list 
+
+# Para obter informações de um agrupamento 
+kafka-consumer-groups --group testA --describe --bootstrap-server localhost:29092
